@@ -5,6 +5,7 @@ import Quiz from "react-quiz-component";
 import { quiz } from "../Quiz/Quiz";
 import TermsComponent from "../TermsComponent/TermsComponent.js";
 import UserRolesComponent from "../UserRolesComponent/UserRolesComponent";
+import placeholder from "../../img/placeholder.png";
 
 function Slides() {
   // State management
@@ -61,6 +62,7 @@ function Slides() {
     arrows: true,
     autoplay: false,
     defaultIndex: 0,
+    transitionDuration: 300,
     prevArrow: (
       <div style={{ width: "30px", marginRight: "-30px" }}>
         <i className="fas fa-arrow-left"></i>
@@ -122,7 +124,7 @@ function Slides() {
                 </span>
               </div>
               <div className="col">
-                <img src="" alt="image"></img>
+                <img src={placeholder} alt="image"></img>
               </div>
             </div>
           </div>
@@ -140,7 +142,7 @@ function Slides() {
                 </ul>
               </div>
               <div className="col">
-                <img src="" alt="image"></img>
+                <img src={placeholder} alt="image"></img>
               </div>
             </div>
           </div>
@@ -167,10 +169,25 @@ function Slides() {
                   data, process transactions, and produce relevant reports
                   necessary for auditability, accountability, and making
                   financial decisions. This is a high level review and does not
-                  include all importantroles.
+                  include all important roles. <strong>(Click Images to View)</strong>
                 </p>
-                
-                <UserRolesComponent />
+                <div>
+                  <UserRolesComponent
+                    image={placeholder}
+                    name="BI Advanced Expert "
+                    description="This user role enables users to execute the DDRS file extraction transaction."
+                  />
+                  <UserRolesComponent
+                    image={placeholder}
+                    name="BI Financial Reporter"
+                    description=" This user role enables users to execute various financial accounting reports. Some reports help users analyze transactional data and to identify potential accounting imbalances."
+                  />
+                  <UserRolesComponent
+                    image={placeholder}
+                    name="Cash Balancing Approver"
+                    description="The role is responsible or approving adjustments to cash transactions entered by the Cash Balancing Processor. Additionally, this role manages overall trends causing issues in cash reconciliation process. The Cash Balancing Approver is then responsible for generating reports to support the correct cash standing of the Army. This role is primarily performed at DFAS today."
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -188,7 +205,20 @@ function Slides() {
                     60 days for the responsible activity, 10 days to take
                     action.
                   </p>
-                  <UserRolesComponent />
+                  <div>
+                    <UserRolesComponent
+                      image={placeholder}
+                      name="Cash Balancing Processor "
+                      description="The role is performed at DFAS today. The Cash Balancing Processor is responsible for reconciling cash postings in GFEBS with the inbound file from DCAS. The Cash Balancing Processor must ensure all cash transactions in the DCAS inbound file are represented as financial postings in GFEBS."
+                    />
+                    <div>
+                    <UserRolesComponent
+                      image={placeholder}
+                      name="Payment Certifier"
+                      description="The role verifies, accepts or rejects the paymentproposal prepared by the Payment Processor. If corrections are needed, the Payment Certifier re-routes the action back through thePayment Processor, who researches and corrects the error. To establish proper separation of duties the Payment Certifier role is separate from the Payment Processor role. The Payment Certifier is the final authority and completes the payment process. The Payment Certifier is also able to edit the Payment Proposal."
+                    />
+                  </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -206,6 +236,7 @@ function Slides() {
                     highlights the relationship between business areas and user
                     roles.
                   </p>
+                  
                 </div>
               </div>
               <div className="col">
@@ -278,7 +309,9 @@ function Slides() {
                   </ul>
                 </div>
               </div>
-              <div className="col">IMAGE</div>
+              <div className="col">
+              <img src={placeholder} alt="image"></img>
+              </div>
             </div>
           </div>
         </Slide>

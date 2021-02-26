@@ -11,6 +11,38 @@ $primary-color:linear-gradient(90deg, rgb(11, 49, 58) 0%, rgb(11, 49, 58) 100%);
 $tertiary-color: #009bd1;
 $main-font: 'Poppins', sans-serif;
 
+.user-roles-container-row{
+  display:flex;
+  justify-content: flex-start;
+  align-items:flex-start;
+  max-height: 100px;
+  margin-top:1rem; 
+ 
+ 
+}
+
+.user-roles-container-row p{
+ padding-left:1rem;
+ margin:0px;
+ 
+ 
+
+}
+
+
+.user-roles-image{
+  border: solid 1px black;
+  width:80px;
+  height: 80px;
+  cursor: pointer;
+  
+}
+
+.user-roles-image:hover{
+  transform: scale(1.2);
+  
+}
+
 
 
 .slide-title,
