@@ -1,47 +1,55 @@
 export const quiz = {
   quizTitle: 'Check on Learning',
   questions: [
+    
+
+    
     {
       question:
-        'The purpose of financial statements is to hold Government agencies accountable for their financial activities.',
+        "What role enables user to execute the DDRS file extraction transaction?",
+      answers: [
+        'Payment Certifier',
+        'BI Advanced Expert',
+        'Financial Reporter',
+        'None of the above',
+      ],
+      questionType: 'text',
+      correctAnswer: '2',
+    },
+    {
+      question:
+        'The Payment Certifier role is responsible for certifying transactions created by the Purchase Requisition Processor.',
       questionType: 'text',
       answers: ['True', 'False'],
-      correctAnswer: '1',
+      correctAnswer: '2',
       answerSelectionType: 'single',
     },
 
-    // ** Uncomment questions below to put them back in **
+    {
+      question:
+        'What role is responsible for generating reports to support the correct cash standing of the Army?',
+      answers: [
+        'Cash Balancing Processor',
+        'Cash Balancing Processor & Approver',
+        'Cash Balancing Payment Requestor',
+        'Cash Balancing Approver',
+      ],
+      correctAnswer: '4',
+      questionType: 'text',
+    },
 
-    // {
-    //   question:
-    //     "What benefits does GFEBS bring to the Army's reporting practices?",
-    //   answers: [
-    //     'Real-time data',
-    //     'On Demand Reports',
-    //     'Customizable reports',
-    //     'All of the above',
-    //   ],
-    //   questionType: 'text',
-    //   correctAnswer: '4',
-    // },
-    // {
-    //   question:
-    //     'With ___________, financial managers can view up-to-date, accurate financial information about the Army at any point in time.',
-    //   answers: [
-    //     'Trial Balance',
-    //     'Customization',
-    //     'Real-time data',
-    //     'All of the above',
-    //   ],
-    //   correctAnswer: '3',
-    //   questionType: 'text',
-    // },
-    // {
-    //   question: "GFEBS produces the Army's financial statements.",
-    //   answers: ['True', 'False'],
-    //   correctAnswer: '2',
-    //   questionType: 'text',
-    // },
+    {
+      question:
+        "What kind of data is recorded in GFEBS ECC that is reported to BI?",
+      answers: [
+        'Important Data',
+        'Transactional Data',
+        'Enterprise Data',
+        'Supply Inventory Data',
+      ],
+      correctAnswer: '2',
+      questionType: 'text',
+    },
     // {
     //   question:
     //     "What data does GFEBS send to DDRS so that DDRS can produce the Army's financial statements?",

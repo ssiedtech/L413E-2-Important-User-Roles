@@ -3,16 +3,67 @@ import { Slide } from "react-slideshow-image";
 import { AppContext } from "../../context/AppContext";
 import Quiz from "react-quiz-component";
 import { quiz } from "../Quiz/Quiz";
-import TermsComponent from "../TermsComponent/TermsComponent.js";
-import UserRolesComponent from "../UserRolesComponent/UserRolesComponent";
 import placeholder from "../../img/placeholder.png";
+import UserRoles2 from "../UserRolesComponent/UserRoles2.js";
+import UserRoles from "../UserRolesComponent/UserRoles.js";
+import Terms from "../TermsComponent/Terms.js";
 
 function Slides() {
   // State management
   const slideRef = useRef();
   const context = useContext(AppContext);
-
   const [key, setKey] = useState();
+
+
+
+  const terms = [
+    [
+      "DCAS",
+      "Defense Cash Accountability System; DFAS system responsible for processing cash transactions and treasury reporting for various Department of Defense agencies.",
+    ],
+    [
+      "DDRS",
+      "Defense Departmental Reporting System; DFAS financial reporting system, which uses the Standard Financial Information Structure (SFIS).",
+    ],
+    [
+      "ECC",
+      "ERP Central Component; The portion of GFEBS representing the transactional accounting system. ECC possesses reporting functionality.",
+    ],
+    [
+      "BI",
+      "Business Intelligence; Industry term referring to reporting systems that provide advanced reporting and analysis capabilities such as slicing and dicing data. Typically, transaction data captures in GFEBS ECC get sent to GFEBS BI to utilize its additional reporting features.",
+    ],
+  ];
+
+  const roles = [
+    
+    [
+      "../../img/shield.png",
+      "BI Advanced Expert",
+      "This user role enables users to execute the DDRS file extraction transaction.",
+    ],
+    [
+      "../../img/shield.png",
+      "BI Financial Reporter",
+      "This user role enables users to execute various financial accounting reports. Some reports help users analyze transactional data and to identify potential accounting imbalances.",
+    ],
+    [
+      "../../img/shield.png",
+      "Cash Balancing Approver",
+      "The role is responsible or approving adjustments to cash transactions entered by the Cash Balancing Processor. Additionally, this role manages overall trends causing issues in cash reconciliation process. The Cash Balancing Approver is then responsible for generating reports to support the correct cash standing of the Army. This role is primarily performed at DFAS today.",
+    ],
+  ];
+
+  const roles2 = [
+    [
+      "Cash Balancing Processor",
+      "The role is performed at DFAS today. The Cash Balancing Processor is responsible for reconciling cash postings in GFEBS with the inbound file from DCAS. The Cash Balancing Processor must ensure all cash transactions in the DCAS inbound file are represented as financial postings in GFEBS.",
+    ],
+    [
+      "BI Financial Reporter",
+      "The role verifies, accepts or rejects the paymentproposal prepared by the Payment Processor. If corrections are needed, the Payment Certifier re-routes the action back through thePayment Processor, who researches and corrects the error. To establish proper separation of duties the Payment Certifier role is separate from the Payment Processor role. The Payment Certifier is the final authority and completes the payment process. The Payment Certifier is also able to edit the Payment Proposal.",
+    ],
+  ];
 
   // Calculates and sets progress bar percentage after every slide change
   useEffect(() => {
@@ -152,7 +203,7 @@ function Slides() {
               <div className="col">
                 <h3 className="slide-title">Key Terms</h3>
                 <br />
-                <TermsComponent />
+                <Terms texts3={terms} />
               </div>
             </div>
           </div>
@@ -169,24 +220,11 @@ function Slides() {
                   data, process transactions, and produce relevant reports
                   necessary for auditability, accountability, and making
                   financial decisions. This is a high level review and does not
-                  include all important roles. <strong>(Click Images to View)</strong>
+                  include all important roles.{" "}
+                  <strong>(Click Images to View)</strong>
                 </p>
                 <div>
-                  <UserRolesComponent
-                    image={placeholder}
-                    name="BI Advanced Expert "
-                    description="This user role enables users to execute the DDRS file extraction transaction."
-                  />
-                  <UserRolesComponent
-                    image={placeholder}
-                    name="BI Financial Reporter"
-                    description=" This user role enables users to execute various financial accounting reports. Some reports help users analyze transactional data and to identify potential accounting imbalances."
-                  />
-                  <UserRolesComponent
-                    image={placeholder}
-                    name="Cash Balancing Approver"
-                    description="The role is responsible or approving adjustments to cash transactions entered by the Cash Balancing Processor. Additionally, this role manages overall trends causing issues in cash reconciliation process. The Cash Balancing Approver is then responsible for generating reports to support the correct cash standing of the Army. This role is primarily performed at DFAS today."
-                  />
+                  <UserRoles texts={roles} />
                 </div>
               </div>
             </div>
@@ -206,18 +244,7 @@ function Slides() {
                     action.
                   </p>
                   <div>
-                    <UserRolesComponent
-                      image={placeholder}
-                      name="Cash Balancing Processor "
-                      description="The role is performed at DFAS today. The Cash Balancing Processor is responsible for reconciling cash postings in GFEBS with the inbound file from DCAS. The Cash Balancing Processor must ensure all cash transactions in the DCAS inbound file are represented as financial postings in GFEBS."
-                    />
-                    <div>
-                    <UserRolesComponent
-                      image={placeholder}
-                      name="Payment Certifier"
-                      description="The role verifies, accepts or rejects the paymentproposal prepared by the Payment Processor. If corrections are needed, the Payment Certifier re-routes the action back through thePayment Processor, who researches and corrects the error. To establish proper separation of duties the Payment Certifier role is separate from the Payment Processor role. The Payment Certifier is the final authority and completes the payment process. The Payment Certifier is also able to edit the Payment Proposal."
-                    />
-                  </div>
+                    <UserRoles2 image={placeholder} texts2={roles2} />
                   </div>
                 </div>
               </div>
@@ -236,7 +263,6 @@ function Slides() {
                     highlights the relationship between business areas and user
                     roles.
                   </p>
-                  
                 </div>
               </div>
               <div className="col">
@@ -272,6 +298,10 @@ function Slides() {
               <div className="col">
                 <div>
                   <h3 className="slide-title">Lesson Checkpoint</h3>
+                  <p>
+                    The following exercise consists of 4 questions to test your
+                    comprehension of the previous information presented.
+                  </p>
                   <Quiz
                     quiz={quiz}
                     key={key}
@@ -310,7 +340,11 @@ function Slides() {
                 </div>
               </div>
               <div className="col">
-              <img src={placeholder} alt="image"></img>
+                <p>
+                  You may exit this module by clicking the <strong>Exit</strong>{" "}
+                  button.
+                </p>
+                <img src={placeholder} alt="image"></img>
               </div>
             </div>
           </div>
