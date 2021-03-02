@@ -3,7 +3,13 @@ import { Slide } from "react-slideshow-image";
 import { AppContext } from "../../context/AppContext";
 import Quiz from "react-quiz-component";
 import { quiz } from "../Quiz/Quiz";
-import placeholder from "../../img/placeholder.png";
+
+import Placeholder from "../../img/placeholder.png";
+import Objectives from "../../img/objectives.png";
+import Checkpoint from "../../img/checkpoint.png";
+import Reports from "../../img/reports.png";
+import Shield from '../../img/shield.png';
+
 import UserRoles2 from "../UserRolesComponent/UserRoles2.js";
 import UserRoles from "../UserRolesComponent/UserRoles.js";
 import Terms from "../TermsComponent/Terms.js";
@@ -166,6 +172,7 @@ function Slides() {
             <div className="row p-3 m-1">
               <div className="col">
                 <h3 className="slide-title">Welcome to Important User Roles</h3>
+                <br/>
                 <span>
                   In this module we will discuss GFEBS user roles that are
                   important to the entire process of producing financial
@@ -175,7 +182,7 @@ function Slides() {
                 </span>
               </div>
               <div className="col">
-                <img src={placeholder} alt="image"></img>
+                <img className="slide-image" src={Reports} alt="image"></img>
               </div>
             </div>
           </div>
@@ -193,7 +200,7 @@ function Slides() {
                 </ul>
               </div>
               <div className="col">
-                <img src={placeholder} alt="image"></img>
+                <img className="slide-image" src={Objectives} alt="image"></img>
               </div>
             </div>
           </div>
@@ -244,7 +251,7 @@ function Slides() {
                     action.
                   </p>
                   <div>
-                    <UserRoles2 image={placeholder} texts2={roles2} />
+                    <UserRoles2 image={Placeholder} texts2={roles2} />
                   </div>
                 </div>
               </div>
@@ -295,6 +302,7 @@ function Slides() {
 
           <div className="slide">
             <div className="row p-3 m-1">
+
               <div className="col">
                 <div>
                   <h3 className="slide-title">Lesson Checkpoint</h3>
@@ -302,6 +310,22 @@ function Slides() {
                     The following exercise consists of 4 questions to test your
                     comprehension of the previous information presented.
                   </p>
+                  
+                </div>
+              </div>
+
+              <div className="col">
+                <img className="slide-image" src={Checkpoint}></img>
+              </div>
+            </div>
+          </div>
+          <div className="slide">
+            <div className="row p-3 m-1">
+
+              <div className="col">
+                <div>
+                
+                
                   <Quiz
                     quiz={quiz}
                     key={key}
@@ -312,7 +336,7 @@ function Slides() {
                   />
                 </div>
               </div>
-              <div className="col">IMAGE</div>
+
             </div>
           </div>
 
@@ -344,7 +368,7 @@ function Slides() {
                   You may exit this module by clicking the <strong>Exit</strong>{" "}
                   button.
                 </p>
-                <img src={placeholder} alt="image"></img>
+                <img className="slide-image" src={Shield} alt="image"></img>
               </div>
             </div>
           </div>
