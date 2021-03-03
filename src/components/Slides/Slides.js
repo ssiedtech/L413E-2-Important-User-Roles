@@ -22,54 +22,8 @@ function Slides() {
 
 
 
-  const terms = [
-    [
-      "DCAS",
-      "Defense Cash Accountability System; DFAS system responsible for processing cash transactions and treasury reporting for various Department of Defense agencies.",
-    ],
-    [
-      "DDRS",
-      "Defense Departmental Reporting System; DFAS financial reporting system, which uses the Standard Financial Information Structure (SFIS).",
-    ],
-    [
-      "ECC",
-      "ERP Central Component; The portion of GFEBS representing the transactional accounting system. ECC possesses reporting functionality.",
-    ],
-    [
-      "BI",
-      "Business Intelligence; Industry term referring to reporting systems that provide advanced reporting and analysis capabilities such as slicing and dicing data. Typically, transaction data captures in GFEBS ECC get sent to GFEBS BI to utilize its additional reporting features.",
-    ],
-  ];
+  
 
-  const roles = [
-    
-    [
-      "../../img/shield.png",
-      "BI Advanced Expert",
-      "This user role enables users to execute the DDRS file extraction transaction.",
-    ],
-    [
-      "../../img/shield.png",
-      "BI Financial Reporter",
-      "This user role enables users to execute various financial accounting reports. Some reports help users analyze transactional data and to identify potential accounting imbalances.",
-    ],
-    [
-      "../../img/shield.png",
-      "Cash Balancing Approver",
-      "The role is responsible or approving adjustments to cash transactions entered by the Cash Balancing Processor. Additionally, this role manages overall trends causing issues in cash reconciliation process. The Cash Balancing Approver is then responsible for generating reports to support the correct cash standing of the Army. This role is primarily performed at DFAS today.",
-    ],
-  ];
-
-  const roles2 = [
-    [
-      "Cash Balancing Processor",
-      "The role is performed at DFAS today. The Cash Balancing Processor is responsible for reconciling cash postings in GFEBS with the inbound file from DCAS. The Cash Balancing Processor must ensure all cash transactions in the DCAS inbound file are represented as financial postings in GFEBS.",
-    ],
-    [
-      "BI Financial Reporter",
-      "The role verifies, accepts or rejects the paymentproposal prepared by the Payment Processor. If corrections are needed, the Payment Certifier re-routes the action back through thePayment Processor, who researches and corrects the error. To establish proper separation of duties the Payment Certifier role is separate from the Payment Processor role. The Payment Certifier is the final authority and completes the payment process. The Payment Certifier is also able to edit the Payment Proposal.",
-    ],
-  ];
 
   // Calculates and sets progress bar percentage after every slide change
   useEffect(() => {
@@ -210,7 +164,7 @@ function Slides() {
               <div className="col">
                 <h3 className="slide-title">Key Terms</h3>
                 <br />
-                <Terms texts3={terms} />
+                <Terms />
               </div>
             </div>
           </div>
@@ -231,7 +185,7 @@ function Slides() {
                   <strong>(Click Images to View)</strong>
                 </p>
                 <div>
-                  <UserRoles texts={roles} />
+                  <UserRoles  />
                 </div>
               </div>
             </div>
@@ -248,10 +202,10 @@ function Slides() {
                     GFEBS users with the Cash Balancing Processor role follow
                     the 60-60-10 day rule: 60 days to research unmatched items,
                     60 days for the responsible activity, 10 days to take
-                    action.
+                    action. <strong>(Click Images to View)</strong>
                   </p>
                   <div>
-                    <UserRoles2 image={Placeholder} texts2={roles2} />
+                    <UserRoles2 />
                   </div>
                 </div>
               </div>

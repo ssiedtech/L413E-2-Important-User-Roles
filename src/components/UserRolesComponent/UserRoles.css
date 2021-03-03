@@ -1,7 +1,9 @@
 .flex-row{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    padding:1rem;
+   
 }
 
 .flex-column{
@@ -11,6 +13,19 @@
     flex-direction: column;
 }
 
-.list{
+.user-image{
+    border: 1px solid black;
+    cursor: pointer;
+    box-shadow: 2px 3px 5px rgba(189, 189, 189, 0.8);
+    
+}
 
+.user-image:hover{
+    transform: translateY(-5px);
+    transition-duration: 0.3s;
+    
+}
+
+.user-list{
+    list-style: none;
 }
