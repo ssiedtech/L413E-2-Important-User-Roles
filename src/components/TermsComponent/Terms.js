@@ -21,25 +21,35 @@ const terms = [
 ];
 
 const Terms = () => {
-  
   const [clickedText, setClickedText] = useState([]);
+  const [showClicked, setShowClicked] = useState(false);
 
   var handleClick = (i) => {
     setClickedText(terms[i]);
+    setShowClicked(true);
   };
 
   return (
     <div className="terms-container-row">
-      <div className="definition-container">
-        <div>
-          {clickedText.map((t, i) => (
-            <div>
-              <p key={`text-${i}`}>{t}</p>
-            </div>
-          ))}
+      <div>
+        <div className="definition-container">
+          <div>
+            {showClicked ? null : (
+              <div>
+                <p>{terms[0][0]}</p>
+                <p>{terms[0][1]}</p>
+              </div>
+            )}
+          </div>
+          <div>
+            {clickedText.map((t, i) => (
+              <div>
+                <p key={i}>{t}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-
       <div className="terms-container-column">
         {terms.map((text, i) => (
           <button

@@ -1,31 +1,41 @@
-.flex-row{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding:1rem;
-   
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap");
+
+.flex-row {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top:1rem;
+  max-height: 200px;
+  font-family: "poppins";
 }
 
-.flex-column{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.flex-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.user-image{
-    border: 1px solid black;
-    cursor: pointer;
-    box-shadow: 2px 3px 5px rgba(189, 189, 189, 0.8);
-    
+.user-image {
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 2px 4px 5px rgba(102, 102, 102, 0.5);
+  height: 100px;
 }
 
-.user-image:hover{
-    transform: translateY(-5px);
-    transition-duration: 0.3s;
-    
+.user-image:hover {
+  transform: translateY(-8px) rotateZ(5deg);
+  transition-duration: 0.2s;
 }
 
-.user-list{
-    list-style: none;
+.user-definition {
+  margin: 0px;
+  
+
+}
+
+.user-title {
+  padding: 1rem;
+  font-weight: bold;
+  font-size:1.1rem;
 }

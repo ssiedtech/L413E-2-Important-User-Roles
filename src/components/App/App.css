@@ -9,6 +9,8 @@ body {
   width: 1024px;
   background-color: #22373a;
   margin: 0 auto;
+ 
+
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

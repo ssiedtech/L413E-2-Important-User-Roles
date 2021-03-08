@@ -1,29 +1,24 @@
 import React, { useRef, useState, useEffect, useContext } from "react";
 import { Slide } from "react-slideshow-image";
 import { AppContext } from "../../context/AppContext";
-import Quiz from "react-quiz-component";
 import { quiz } from "../Quiz/Quiz";
-
-import Placeholder from "../../img/placeholder.png";
-import Objectives from "../../img/objectives.png";
-import Checkpoint from "../../img/checkpoint.png";
-import Reports from "../../img/reports.png";
-import Shield from '../../img/shield.png';
-
+import { Image } from "react-bootstrap";
+import Quiz from "react-quiz-component";
 import UserRoles2 from "../UserRolesComponent/UserRoles2.js";
 import UserRoles from "../UserRolesComponent/UserRoles.js";
 import Terms from "../TermsComponent/Terms.js";
+
+//Image Imports//
+import Objectives from "../../img/Objectives.png";
+import Checkpoint from "../../img/Checkpoint.png";
+import Reports from "../../img/Reports.png";
+import Shield from "../../img/Shield.png";
 
 function Slides() {
   // State management
   const slideRef = useRef();
   const context = useContext(AppContext);
   const [key, setKey] = useState();
-
-
-
-  
-
 
   // Calculates and sets progress bar percentage after every slide change
   useEffect(() => {
@@ -39,9 +34,11 @@ function Slides() {
         "#root > div > div.mx-auto.my-auto > div > div > div.undefined.nav"
       ).style.display = "block";
     }
-
     // Removes next arrow on final slide
-    if (context.currentSlide === context.total) {
+    if (
+      context.currentSlide === context.total ||
+      context.currentSlide === context.total - 1
+    ) {
       document.querySelector(
         "#root > div > div.mx-auto.my-auto > div > div > div.next-arrow.nav"
       ).style.display = "none";
@@ -66,11 +63,17 @@ function Slides() {
   function retakeQuiz() {
     return setKey(Math.random());
   }
+  function continueQuiz() {
+    document.querySelector(
+      "#root > div > div.mx-auto.my-auto > div > div > div.next-arrow.nav"
+    ).style.display = "block";
+  }
 
   // React-Slideshow package settings
   const properties = {
     indicators: false,
     arrows: true,
+    canSwipe: false,
     autoplay: false,
     defaultIndex: 0,
     transitionDuration: 300,
@@ -93,19 +96,24 @@ function Slides() {
   };
 
   // Sets post-quiz state
-  const onCompleteAction = (obj) => {
-    document.querySelector(".next-arrow").style.display = "block";
-    context.onQuizCompletion();
-  };
+  // const onCompleteAction = (obj) => {
+  //   document.querySelector(".next-arrow").style.display = "block";
+  //   context.onQuizCompletion();
+  // };
 
   // Renders custom results page
   const renderCustomResultPage = (obj) => {
     return (
       <div>
         <h4>Well done, you may now continue with the lesson.</h4>
-        <button onClick={retakeQuiz} className="btn btn-primary">
-          Retake
-        </button>
+        <div className="flex-row">
+          <button onClick={retakeQuiz} className="btn btn-primary">
+            Retake
+          </button>
+          <button onClick={continueQuiz} className="btn btn-primary">
+            Continue
+          </button>
+        </div>
       </div>
     );
   };
@@ -126,7 +134,7 @@ function Slides() {
             <div className="row p-3 m-1">
               <div className="col">
                 <h3 className="slide-title">Welcome to Important User Roles</h3>
-                <br/>
+                <br />
                 <span>
                   In this module we will discuss GFEBS user roles that are
                   important to the entire process of producing financial
@@ -136,7 +144,12 @@ function Slides() {
                 </span>
               </div>
               <div className="col">
-                <img className="slide-image" src={Reports} alt="image"></img>
+                <Image
+                  fluid
+                  className="mt-3 py-5 px-5 ml-5"
+                  src={Reports}
+                  alt="reports"
+                />
               </div>
             </div>
           </div>
@@ -154,11 +167,15 @@ function Slides() {
                 </ul>
               </div>
               <div className="col">
-                <img className="slide-image" src={Objectives} alt="image"></img>
+                <Image
+                  fluid
+                  className="mt-1 py-3"
+                  src={Objectives}
+                  alt="objectives"
+                />
               </div>
             </div>
           </div>
-
           <div className="slide">
             <div className="row p-3 m-1">
               <div className="col">
@@ -168,7 +185,6 @@ function Slides() {
               </div>
             </div>
           </div>
-
           <div className="slide">
             <div className="row p-3 m-1">
               <div className="col">
@@ -185,12 +201,11 @@ function Slides() {
                   <strong>(Click Images to View)</strong>
                 </p>
                 <div>
-                  <UserRoles  />
+                  <UserRoles />
                 </div>
               </div>
             </div>
           </div>
-
           <div className="slide">
             <div className="row p-3 m-1">
               <div className="col">
@@ -211,7 +226,6 @@ function Slides() {
               </div>
             </div>
           </div>
-
           <div className="slide">
             <div className="row p-3 m-1">
               <div className="col">
@@ -219,7 +233,7 @@ function Slides() {
                   <h3 className="slide-title">Business Process</h3>
                   <p>
                     Financial reporting is segmented into three business areas.
-                    In order forthese areas to function, users must introduce
+                    In order for these areas to function, users must introduce
                     transactional data into the workflow. The following
                     highlights the relationship between business areas and user
                     roles.
@@ -253,10 +267,8 @@ function Slides() {
               </div>
             </div>
           </div>
-
           <div className="slide">
             <div className="row p-3 m-1">
-
               <div className="col">
                 <div>
                   <h3 className="slide-title">Lesson Checkpoint</h3>
@@ -264,33 +276,35 @@ function Slides() {
                     The following exercise consists of 4 questions to test your
                     comprehension of the previous information presented.
                   </p>
-                  
                 </div>
               </div>
-
               <div className="col">
-                <img className="slide-image" src={Checkpoint}></img>
+                <Image
+                  fluid
+                  className="mt-1 py-5"
+                  src={Checkpoint}
+                  alt="shield"
+                />
               </div>
             </div>
           </div>
+
           <div className="slide">
             <div className="row p-3 m-1">
-
               <div className="col">
+                <h3 className="slide-title" id="quiz">
+                  Quiz
+                </h3>
                 <div>
-                
-                
                   <Quiz
                     quiz={quiz}
                     key={key}
                     continueTillCorrect={true}
                     showDefaultResult={false}
-                    onComplete={onCompleteAction}
                     customResultPage={renderCustomResultPage}
                   />
                 </div>
               </div>
-
             </div>
           </div>
 
@@ -315,14 +329,19 @@ function Slides() {
                       process
                     </li>
                   </ul>
+                  <p>
+                    You may exit this module by clicking the{" "}
+                    <strong>Exit</strong> button.
+                  </p>
                 </div>
               </div>
               <div className="col">
-                <p>
-                  You may exit this module by clicking the <strong>Exit</strong>{" "}
-                  button.
-                </p>
-                <img className="slide-image" src={Shield} alt="image"></img>
+                <Image
+                  fluid
+                  className="mt-2 py-5 ml-5"
+                  src={Shield}
+                  alt="shield"
+                />
               </div>
             </div>
           </div>
