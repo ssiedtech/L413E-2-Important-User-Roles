@@ -49,11 +49,8 @@ $main-font: "Poppins", sans-serif;
 //   padding:1rem;
 // }
 
-.flex-row{
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 1rem;
+#quiz{
+  display: block;
 }
 
 .modal {
