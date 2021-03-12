@@ -24,8 +24,6 @@ function Slides() {
   // Calculates and sets progress bar percentage after every slide change
   useEffect(() => {
     context.toggleProgress();
- 
-
 
     // Removes back arrow on first slide
     if (context.currentSlide === 1) {
@@ -38,7 +36,10 @@ function Slides() {
       ).style.display = "block";
     }
     // Removes next arrow on final slide
-    if (context.currentSlide === context.total || context.currentSlide === (context.total - 1)) {
+    if (
+      context.currentSlide === context.total ||
+      context.currentSlide === context.total - 1
+    ) {
       document.querySelector(
         "#root > div > div.mx-auto.my-auto > div > div > div.next-arrow.nav"
       ).style.display = "none";
@@ -292,11 +293,9 @@ function Slides() {
           <div className="slide">
             <div className="row p-3 m-1">
               <div className="col">
-                <h3 className="slide-title">
-                  Quiz
-                </h3>
+                <h3 className="slide-title">Quiz</h3>
                 <div id="quiz">
-                  <Quiz 
+                  <Quiz
                     quiz={quiz}
                     key={key}
                     continueTillCorrect={true}
