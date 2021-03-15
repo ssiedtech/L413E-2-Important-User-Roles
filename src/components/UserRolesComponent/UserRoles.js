@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./UserRoles.css";
-import Placeholder from "../../img/Placeholder.png";
-import CashBalancerApprover from "../../img/CashBalancer.png";
-import BIAdvancedExpert from "../../img/BI.png";
+
+//IMORT IMAGES//
+import CashBalancerApprover from "../../img/CashBalancingApprover.png";
+import BIAdvancedExpert from "../../img/BIAdvancedExpert.png";
 import FinancialReporter from "../../img/FinancialReporter.png";
-//CREATE ARRAY IMPORT IMAGE//
+
+//CREATE ARRAY REFERENCE IMAGE IMPORT//
 const roles = [
   [
     BIAdvancedExpert,
@@ -23,15 +25,14 @@ const roles = [
   ],
 ];
 
+//CREATE FUNCTIONAL COMPONENT//
 const UserRoles = () => {
   //STATE MANAGEMENT//
   const [clickedText, setClickedText] = useState([]);
-
   //METHOD FOR STATE CHANGE//
   var handleClick = (index, role) => {
     setClickedText(roles[index]);
   };
-
   //MAP & RENDER IMAGE, ROLE, DESCRIPTION//
   return (
     <div>
@@ -51,12 +52,16 @@ const UserRoles = () => {
       <div className="flex-row">
         <div>
           {clickedText.map((t, index) => {
-            return index === 0 || index === 1 ? null : <p className= "user-definition" key={index}>{t}</p>;
+            return index === 0 || index === 1 ? null : (
+              <p className="user-definition" key={index}>
+                {t}
+              </p>
+            );
           })}
         </div>
       </div>
     </div>
   );
 };
-
+//EXPORT COMPONENT//
 export default UserRoles;
