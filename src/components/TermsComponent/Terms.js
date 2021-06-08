@@ -52,11 +52,7 @@ const Terms = () => {
       </div>
       <div className="terms-container-column">
         {terms.map((text, i) => (
-          <button
-            className="terms-button"
-            key={i}
-            onClick={() => handleClick(i)}
-          >
+          <button className="btn btn-primary m-1" style={{ width: "200px" }} key={i} onClick={() => handleClick(i)}>
             {terms[i][0]}
           </button>
         ))}

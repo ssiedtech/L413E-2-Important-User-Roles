@@ -39,12 +39,7 @@ const UserRoles = () => {
       <div className="flex-row">
         {roles.map((role, index) => (
           <div className="flex-column">
-            <img
-              className="user-image"
-              src={roles[index][0]}
-              key={index}
-              onClick={() => handleClick(index)}
-            />
+            <img className="user-image" src={roles[index][0]} key={index} onClick={() => handleClick(index)} />
             <p className="user-title">{roles[index][1]}</p>
           </div>
         ))}
