@@ -1,54 +1,41 @@
 export const quiz = {
-  quizTitle: 'Check on Learning',
+  quizTitle: "Check on Learning",
   questions: [
-    
-
-    
     {
-      question:
-        "What role enables user to execute the DDRS file extraction transaction?",
-      answers: [
-        'Payment Certifier',
-        'BI Advanced Expert',
-        'Financial Reporter',
-        'None of the above',
-      ],
-      questionType: 'text',
-      correctAnswer: '2',
+      question: "What role enables user to execute the DDRS file extraction transaction?",
+      answers: ["Payment Certifier", "BI Advanced Expert", "Financial Reporter", "None of the above"],
+      questionType: "text",
+      correctAnswer: "2",
+      answerSelectionType: "single",
     },
     {
       question:
-        'The Payment Certifier role is responsible for certifying transactions created by the Purchase Requisition Processor.',
-      questionType: 'text',
-      answers: ['True', 'False'],
-      correctAnswer: '2',
-      answerSelectionType: 'single',
+        "The Payment Certifier role is responsible for certifying transactions created by the Purchase Requisition Processor.",
+      questionType: "text",
+      answers: ["True", "False"],
+      correctAnswer: "2",
+      answerSelectionType: "single",
     },
 
     {
-      question:
-        'What role is responsible for generating reports to support the correct cash standing of the Army?',
+      question: "What role is responsible for generating reports to support the correct cash standing of the Army?",
       answers: [
-        'Cash Balancing Processor',
-        'Cash Balancing Processor & Approver',
-        'Cash Balancing Payment Requestor',
-        'Cash Balancing Approver',
+        "Cash Balancing Processor",
+        "Cash Balancing Processor & Approver",
+        "Cash Balancing Payment Requestor",
+        "Cash Balancing Approver",
       ],
-      correctAnswer: '4',
-      questionType: 'text',
+      correctAnswer: "4",
+      questionType: "text",
+      answerSelectionType: "single",
     },
 
     {
-      question:
-        "What kind of data is recorded in GFEBS ECC that is reported to BI?",
-      answers: [
-        'Important Data',
-        'Transactional Data',
-        'Enterprise Data',
-        'Supply Inventory Data',
-      ],
-      correctAnswer: '2',
-      questionType: 'text',
+      question: "What kind of data is recorded in GFEBS ECC that is reported to BI?",
+      answers: ["Important Data", "Transactional Data", "Enterprise Data", "Supply Inventory Data"],
+      correctAnswer: "2",
+      questionType: "text",
+      answerSelectionType: "single",
     },
     // {
     //   question:

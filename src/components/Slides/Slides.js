@@ -19,7 +19,6 @@ function Slides() {
   const slideRef = useRef();
   const context = useContext(AppContext);
   const [key, setKey] = useState();
-  const textInput = useRef(null);
 
   // Calculates and sets progress bar percentage after every slide change
   useEffect(() => {

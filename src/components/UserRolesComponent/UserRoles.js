@@ -8,52 +8,50 @@ import FinancialReporter from "../../img/FinancialReporter.png";
 
 //CREATE ARRAY REFERENCE IMAGE IMPORT//
 const roles = [
-  [
-    BIAdvancedExpert,
-    "BI Advanced Expert",
-    "This user role enables users to execute the DDRS file extraction transaction.",
-  ],
-  [
-    FinancialReporter,
-    "BI Financial Reporter",
-    "This user role enables users to execute various financial accounting reports. Some reports help users analyze transactional data and to identify potential accounting imbalances.",
-  ],
-  [
-    CashBalancerApprover,
-    "Cash Balancing Approver",
-    "This role is responsible or approving adjustments to cash transactions entered by the Cash Balancing Processor. Additionally, this role manages overall trends causing issues in cash reconciliation process. The Cash Balancing Approver is then responsible for generating reports to support the correct cash standing of the Army. This role is primarily performed at DFAS today.",
-  ],
+  {
+    id: 1,
+    image: BIAdvancedExpert,
+    title: "BI Advanced Expert",
+    description: "This user role enables users to execute the DDRS file extraction transaction.",
+  },
+
+  {
+    id: 2,
+    image: FinancialReporter,
+    title: "BI Financial Reporter",
+    description:
+      "This user role enables users to execute various financial accounting reports. Some reports help users analyze transactional data and to identify potential accounting imbalances.",
+  },
+  {
+    id: 3,
+    image: CashBalancerApprover,
+    title: "Cash Balancing Approver",
+    description:
+      "This role is responsible or approving adjustments to cash transactions entered by the Cash Balancing Processor. Additionally, this role manages overall trends causing issues in cash reconciliation process. The Cash Balancing Approver is then responsible for generating reports to support the correct cash standing of the Army. This role is primarily performed at DFAS today.",
+  },
 ];
 
 //CREATE FUNCTIONAL COMPONENT//
 const UserRoles = () => {
   //STATE MANAGEMENT//
-  const [clickedText, setClickedText] = useState([]);
+  const [clickedText, setClickedText] = useState();
   //METHOD FOR STATE CHANGE//
-  var handleClick = (index, role) => {
-    setClickedText(roles[index]);
+  var handleClick = (index) => {
+    setClickedText(index);
   };
   //MAP & RENDER IMAGE, ROLE, DESCRIPTION//
   return (
     <div>
       <div className="flex-row">
-        {roles.map((role, index) => (
-          <div className="flex-column">
-            <img className="user-image" src={roles[index][0]} key={index} onClick={() => handleClick(index)} />
-            <p className="user-title">{roles[index][1]}</p>
+        {roles.map((role) => (
+          <div className="flex-column" key={role.id}>
+            <img className="user-image" alt="role" src={role.image} onClick={() => handleClick(role.description)} />
+            <p className="user-title">{role.title}</p>
           </div>
         ))}
       </div>
       <div className="flex-row">
-        <div>
-          {clickedText.map((t, index) => {
-            return index === 0 || index === 1 ? null : (
-              <p className="user-definition" key={index}>
-                {t}
-              </p>
-            );
-          })}
-        </div>
+        <p>{clickedText}</p>
       </div>
     </div>
   );

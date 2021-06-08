@@ -7,55 +7,45 @@ import PaymentCertifier from "../../img/PaymentCertifier.png";
 
 //CREATE ARRAY REFERENCE IMAGE IMPORT//
 const roles2 = [
-  [
-    CashBalancingProcessor,
-    "Cash Balancing Processor",
-    "The role is performed at DFAS today. The Cash Balancing Processor is responsible for reconciling cash postings in GFEBS with the inbound file from DCAS. The Cash Balancing Processor must ensure all cash transactions in the DCAS inbound file are represented as financial postings in GFEBS.",
-  ],
-  [
-    PaymentCertifier,
-    "Payment Certifier",
-    "The role verifies, accepts or rejects the paymentproposal prepared by the Payment Processor. If corrections are needed, the Payment Certifier re-routes the action back through thePayment Processor, who researches and corrects the error. To establish proper separation of duties the Payment Certifier role is separate from the Payment Processor role. The Payment Certifier is the final authority and completes the payment process. The Payment Certifier is also able to edit the Payment Proposal.",
-  ],
+  {
+    id: 1,
+    image: CashBalancingProcessor,
+    title: "Cash Balancing Processor",
+    description:
+      "The role is performed at DFAS today. The Cash Balancing Processor is responsible for reconciling cash postings in GFEBS with the inbound file from DCAS. The Cash Balancing Processor must ensure all cash transactions in the DCAS inbound file are represented as financial postings in GFEBS.",
+  },
+
+  {
+    id: 2,
+    image: PaymentCertifier,
+    title: "Payment Certifier",
+    description:
+      "The role verifies, accepts or rejects the paymentproposal prepared by the Payment Processor. If corrections are needed, the Payment Certifier re-routes the action back through thePayment Processor, who researches and corrects the error. To establish proper separation of duties the Payment Certifier role is separate from the Payment Processor role. The Payment Certifier is the final authority and completes the payment process. The Payment Certifier is also able to edit the Payment Proposal.",
+  },
 ];
 
-const UserRoles2 = (props) => {
+const UserRoles2 = () => {
   //STATE MANAGEMENT//
-  const [clickedText, setClickedText] = useState([]);
+  const [clickedText, setClickedText] = useState();
   //METHOD FOR STATE CHANGE//
-  var handleClick = (index, role) => {
-    setClickedText(roles2[index]);
+  var handleClick = (index) => {
+    setClickedText(index);
   };
   //MAP & RENDER IMAGE, ROLE, DESCRIPTION//
   return (
-    <div>
-      <hr></hr>
+    <>
       <div className="flex-row">
-        {roles2.map((role, index) => (
-          <div className="flex-column">
-            <img
-              className="user-image"
-              src={roles2[index][0]}
-              key={index}
-              onClick={() => handleClick(index)}
-            />
-            <p className="user-title">{roles2[index][1]}</p>
+        {roles2.map((role) => (
+          <div className="flex-column" key={role.id}>
+            <img className="user-image" alt="roles" src={role.image} onClick={() => handleClick(role.description)} />
+            <p className="user-title">{role.title}</p>
           </div>
         ))}
       </div>
-
       <div className="flex-row">
-        <div>
-          {clickedText.map((t, index) => {
-            return index === 0 || index === 1 ? null : (
-              <p className="user-definition" key={index}>
-                {t}
-              </p>
-            );
-          })}
-        </div>
+        <p>{clickedText}</p>
       </div>
-    </div>
+    </>
   );
 };
 //EXPORT COMPONENT
